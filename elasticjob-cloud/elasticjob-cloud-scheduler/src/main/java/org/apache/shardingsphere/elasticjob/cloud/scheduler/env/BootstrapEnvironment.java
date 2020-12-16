@@ -22,7 +22,7 @@ import com.google.common.base.Strings;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.shardingsphere.elasticjob.reg.zookeeper.ZookeeperConfiguration;
 import org.apache.shardingsphere.elasticjob.tracing.api.TracingConfiguration;
 import javax.sql.DataSource;
@@ -121,6 +121,15 @@ public final class BootstrapEnvironment {
     public FrameworkConfiguration getFrameworkConfiguration() {
         return new FrameworkConfiguration(Integer.parseInt(getValue(EnvironmentArgument.JOB_STATE_QUEUE_SIZE)), Integer.parseInt(getValue(EnvironmentArgument.RECONCILE_INTERVAL_MINUTES)));
     }
+
+    /**
+     * Get user auth config.
+     *
+     * @return the user auth config.
+     */
+    public AuthConfiguration getUserAuthConfiguration() {
+        return new AuthConfiguration(getValue(EnvironmentArgument.AUTH_USERNAME), getValue(EnvironmentArgument.AUTH_PASSWORD));
+    }
     
     /**
      * Get tracing configuration.
@@ -213,7 +222,11 @@ public final class BootstrapEnvironment {
 
         EVENT_TRACE_RDB_PASSWORD("event_trace_rdb_password", "", false),
     
-        RECONCILE_INTERVAL_MINUTES("reconcile_interval_minutes", "-1", false);
+        RECONCILE_INTERVAL_MINUTES("reconcile_interval_minutes", "-1", false),
+
+        AUTH_USERNAME("auth_username", "root", true),
+
+        AUTH_PASSWORD("auth_password", "pwd", true);
         
         private final String key;
         

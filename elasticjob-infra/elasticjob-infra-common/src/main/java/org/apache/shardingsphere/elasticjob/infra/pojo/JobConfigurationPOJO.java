@@ -20,9 +20,14 @@ package org.apache.shardingsphere.elasticjob.infra.pojo;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.shardingsphere.elasticjob.api.JobConfiguration;
+import org.apache.shardingsphere.elasticjob.api.JobExtraConfiguration;
+import org.apache.shardingsphere.elasticjob.infra.yaml.config.YamlConfiguration;
+import org.apache.shardingsphere.elasticjob.infra.yaml.config.YamlConfigurationConverterFactory;
+import org.apache.shardingsphere.elasticjob.infra.yaml.exception.YamlConfigurationConverterNotFoundException;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.Properties;
 
 /**
@@ -60,6 +65,8 @@ public final class JobConfigurationPOJO {
     
     private Collection<String> jobListenerTypes = new ArrayList<>();
     
+    private Collection<YamlConfiguration<JobExtraConfiguration>> jobExtraConfigurations = new LinkedList<>();
+    
     private String description;
     
     private Properties props = new Properties();
@@ -80,6 +87,7 @@ public final class JobConfigurationPOJO {
                 .maxTimeDiffSeconds(maxTimeDiffSeconds).reconcileIntervalMinutes(reconcileIntervalMinutes)
                 .jobShardingStrategyType(jobShardingStrategyType).jobExecutorServiceHandlerType(jobExecutorServiceHandlerType).jobErrorHandlerType(jobErrorHandlerType)
                 .jobListenerTypes(jobListenerTypes.toArray(new String[]{})).description(description).disabled(disabled).overwrite(overwrite).build();
+        jobExtraConfigurations.stream().map(YamlConfiguration::toConfiguration).forEach(result.getExtraConfigurations()::add);
         for (Object each : props.keySet()) {
             result.getProps().setProperty(each.toString(), props.get(each.toString()).toString());
         }
@@ -92,6 +100,7 @@ public final class JobConfigurationPOJO {
      * @param jobConfiguration job configuration
      * @return job configuration POJO
      */
+    @SuppressWarnings("unchecked")
     public static JobConfigurationPOJO fromJobConfiguration(final JobConfiguration jobConfiguration) {
         JobConfigurationPOJO result = new JobConfigurationPOJO();
         result.setJobName(jobConfiguration.getJobName());
@@ -108,6 +117,8 @@ public final class JobConfigurationPOJO {
         result.setJobExecutorServiceHandlerType(jobConfiguration.getJobExecutorServiceHandlerType());
         result.setJobErrorHandlerType(jobConfiguration.getJobErrorHandlerType());
         result.setJobListenerTypes(jobConfiguration.getJobListenerTypes());
+        jobConfiguration.getExtraConfigurations().stream().map(each -> YamlConfigurationConverterFactory.findConverter((Class<JobExtraConfiguration>) each.getClass())
+                .orElseThrow(() -> new YamlConfigurationConverterNotFoundException(each.getClass())).convertToYamlConfiguration(each)).forEach(result.getJobExtraConfigurations()::add);
         result.setDescription(jobConfiguration.getDescription());
         result.setProps(jobConfiguration.getProps());
         result.setDisabled(jobConfiguration.isDisabled());

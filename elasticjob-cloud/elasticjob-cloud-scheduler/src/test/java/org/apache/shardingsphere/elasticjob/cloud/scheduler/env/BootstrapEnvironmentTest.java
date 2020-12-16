@@ -17,7 +17,7 @@
 
 package org.apache.shardingsphere.elasticjob.cloud.scheduler.env;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.shardingsphere.elasticjob.cloud.ReflectionUtils;
 import org.apache.shardingsphere.elasticjob.reg.zookeeper.ZookeeperConfiguration;
 import org.junit.Test;
@@ -74,7 +74,7 @@ public final class BootstrapEnvironmentTest {
         properties.setProperty(BootstrapEnvironment.EnvironmentArgument.EVENT_TRACE_RDB_USERNAME.getKey(), "sa");
         properties.setProperty(BootstrapEnvironment.EnvironmentArgument.EVENT_TRACE_RDB_PASSWORD.getKey(), "password");
         ReflectionUtils.setFieldValue(bootstrapEnvironment, "properties", properties);
-        bootstrapEnvironment.getTracingConfiguration().ifPresent(tracingConfig -> assertThat(tracingConfig.getStorage(), instanceOf(BasicDataSource.class)));
+        bootstrapEnvironment.getTracingConfiguration().ifPresent(tracingConfig -> assertThat(tracingConfig.getTracingStorageConfiguration().getStorage(), instanceOf(BasicDataSource.class)));
     }
     
     @Test
@@ -121,6 +121,8 @@ public final class BootstrapEnvironmentTest {
 
     @Test
     public void assertGetFrameworkHostPort() {
+        Properties properties = new Properties();
+        ReflectionUtils.setFieldValue(bootstrapEnvironment, "properties", properties);
         assertThat(bootstrapEnvironment.getFrameworkHostPort(), is("localhost:8899"));
     }
 

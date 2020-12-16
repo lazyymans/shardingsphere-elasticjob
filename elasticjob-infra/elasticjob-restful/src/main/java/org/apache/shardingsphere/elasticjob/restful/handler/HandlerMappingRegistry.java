@@ -41,12 +41,9 @@ public final class HandlerMappingRegistry {
      * @param httpRequest HTTP request
      * @return A MappingContext if matched, return null if mismatched.
      */
-    public MappingContext<Handler> getMappingContext(final HttpRequest httpRequest) {
-        UrlPatternMap<Handler> urlPatternMap = mappings.get(httpRequest.method());
+    public Optional<MappingContext<Handler>> getMappingContext(final HttpRequest httpRequest) {
         String uriWithoutQuery = httpRequest.uri().split("\\?")[0];
-        return Optional
-                .ofNullable(urlPatternMap.match(uriWithoutQuery))
-                .orElse(null);
+        return Optional.ofNullable(mappings.get(httpRequest.method())).map(urlPatternMap -> urlPatternMap.match(uriWithoutQuery));
     }
     
     /**
@@ -57,8 +54,7 @@ public final class HandlerMappingRegistry {
      * @param handler handler
      */
     public void addMapping(final HttpMethod method, final String pathPattern, final Handler handler) {
-        mappings.computeIfAbsent(method, httpMethod -> new RegexUrlPatternMap<>());
-        UrlPatternMap<Handler> urlPatternMap = mappings.get(method);
+        UrlPatternMap<Handler> urlPatternMap = mappings.computeIfAbsent(method, httpMethod -> new RegexUrlPatternMap<>());
         urlPatternMap.put(pathPattern, handler);
     }
 }
