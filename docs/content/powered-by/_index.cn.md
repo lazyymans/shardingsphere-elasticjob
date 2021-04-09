@@ -13,7 +13,7 @@ chapter = true
 
 ## 谁在使用 ElasticJob?
 
-共计 77 家公司。
+共计 79 家公司。
 
 ### 电子商务
 <ul>
@@ -48,6 +48,7 @@ chapter = true
     <li><a href="https://www.kaniu.com/" rel="nofollow">卡牛信用管家</a></li>
     <li><a href="http://www.jiedaibao.com/" rel="nofollow">借贷宝</a></li>
     <li><a href="https://www.jinhui365.com/" rel="nofollow">金汇金融</a></li>
+    <li><a href="http://www.91techgroup.com/" rel="nofollow">91科技集团</a></li>
 </ul>
 
 ### 数字化与云服务
@@ -66,6 +67,7 @@ chapter = true
     <li><a href="https://www.itrip.com/" rel="nofollow">iTrip爱去</a></li>
     <li><a href="https://www.maihaoche.com/" rel="nofollow">卖好车</a></li>
     <li><a href="https://www.ttpai.cn/" rel="nofollow">天天拍车</a></li>
+    <li><a href="https://www.didiglobal.com/" rel="nofollow">滴滴出行</a></li>
 </ul>
 
 ### 物流
@@ -89,6 +91,7 @@ chapter = true
     <li><a href="https://willclass.com/" rel="nofollow">会通教育</a></li>
     <li><a href="http://www.thinktown.com/" rel="nofollow">新课堂教育</a></li>
     <li><a href="https://www.genshuixue.com/" rel="nofollow">跟谁学</a></li>
+    <li><a href="https://www.qidianla.com/" rel="nofollow">起点学院</a></li>
 </ul>
 
 ### 互联网文娱
@@ -120,6 +123,7 @@ chapter = true
     <li><a href="http://www.gdyuanpeng.com/" rel="nofollow">沅朋物联</a></li>
     <li><a href="https://www.g7.com.cn/" rel="nofollow">汇通天下</a></li>
     <li><a href="http://www.glsx.com.cn/">广联赛讯</a></li>
+    <li><a href="https://sunwuu.com">商物云</a></li>
 </ul>
 
 ### 软件开发及服务
@@ -133,6 +137,7 @@ chapter = true
     <li><a href="http://www.deepdraw.cn/" rel="nofollow">深绘智能</a></li>
     <li><a href="https://www.go-future.cn/" rel="nofollow">未来信封</a></li>
     <li><a href="http://www.gzcss.net/" rel="nofollow">广州中软信息技术有限公司</a></li>
+    <li><a href="https://www.shb.ltd/" rel="nofollow">售后宝</a></li>
 </ul>
 
 ### 医疗健康

@@ -13,7 +13,7 @@ Please register [here](https://github.com/apache/shardingsphere-elasticjob/issue
 
 ## Who are using ElasticJob?
 
-Total: 77 companies.
+Total: 79 companies.
 
 ### E-commerce
 <ul>
@@ -48,6 +48,7 @@ Total: 77 companies.
     <li><a href="https://www.kaniu.com/" rel="nofollow">NiuCard</a></li>
     <li><a href="http://www.jiedaibao.com/" rel="nofollow">JieDaiBao</a></li>
     <li><a href="https://www.jinhui365.com/" rel="nofollow">JinHui365</a></li>
+    <li><a href="http://www.91techgroup.com/" rel="nofollow">91 Tech Group</a></li>
 </ul>
 
 ### Digitalization and Cloud Services
@@ -66,6 +67,7 @@ Total: 77 companies.
     <li><a href="https://www.itrip.com/" rel="nofollow">iTrip</a></li>
     <li><a href="https://www.maihaoche.com/" rel="nofollow">MaiHaoche</a></li>
     <li><a href="https://www.ttpai.cn/" rel="nofollow">TTPai</a></li>
+    <li><a href="https://www.didiglobal.com/" rel="nofollow">DiDi</a></li>
 </ul>
 
 ### Logistics
@@ -89,6 +91,7 @@ Total: 77 companies.
     <li><a href="https://willclass.com/" rel="nofollow">Will Class</a></li>
     <li><a href="http://www.thinktown.com/" rel="nofollow">Think Town</a></li>
     <li><a href="https://www.genshuixue.com/" rel="nofollow">GSX</a></li>
+    <li><a href="https://www.qidianla.com/" rel="nofollow">Qidian</a></li>
 </ul>
 
 ### E-entertainment
@@ -120,6 +123,7 @@ Total: 77 companies.
     <li><a href="http://www.gdyuanpeng.com/" rel="nofollow">YY Cloud</a></li>
     <li><a href="https://www.g7.com.cn/" rel="nofollow">G7</a></li>
     <li><a href="http://www.glsx.com.cn/">ShenzhenGuangliansaixun Co.，LTD.</a></li>
+    <li><a href="https://sunwuu.com">Guangzhou shang mai network technology co. LTD</a></li>
 </ul>
 
 ### Software Development Services
@@ -133,6 +137,7 @@ Total: 77 companies.
     <li><a href="http://www.deepdraw.cn/" rel="nofollow">DeepDraw</a></li>
     <li><a href="https://www.go-future.cn/" rel="nofollow">WeiLaiXinFeng</a></li>
     <li><a href="http://www.gzcss.net/" rel="nofollow">Guangzhou Zhongruan</a></li>
+    <li><a href="https://www.shb.ltd/" rel="nofollow">PubLink</a></li>
 </ul>
 
 ### Health Care
